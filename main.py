@@ -6,7 +6,7 @@ import pandas as pd
 import numpy as np
 import streamlit as st
 
-proxy = "http://127.0.0.1:7890/"
+proxy = None
 proxies = {
     "http": proxy,
     "https": proxy
