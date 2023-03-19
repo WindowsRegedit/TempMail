@@ -20,7 +20,7 @@ def get_resp():
 
 resp = get_resp()
 
-n = st.slider("输入生成数量", 1, 1000000, 10000)
+n = st.slider("输入生成数量", 1, 100000000, 1000000)
 if st.button("开始生成"):
     fn = str(uuid.uuid4()) + ".txt"
     with st.spinner("请稍等……"), open("..\\" + fn, "a+", encoding="utf-8") as f:
