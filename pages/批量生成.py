@@ -5,7 +5,7 @@ import random
 import requests
 import streamlit as st
 
-proxy = "http://127.0.0.1:7890/"
+proxy = None
 proxies = {
     "http": proxy,
     "https": proxy
@@ -20,13 +20,19 @@ def get_resp():
 
 resp = get_resp()
 
-n = st.slider("输入生成数量", 1, 1000000, 10000)
+prefix = st.text_input("邮箱前缀：")
+suffix = st.text_input("邮箱后缀：")
+domain = st.multiselect("选择邮箱域名：", ["全部域名"] + resp, default="全部域名")
+if "全部域名" in domain:
+    domain = resp
+
+n = st.slider("输入生成数量", 1, 10000000, 100000)
 if st.button("开始生成"):
     fn = str(uuid.uuid4()) + ".txt"
     with st.spinner("请稍等……"), open("..\\" + fn, "a+", encoding="utf-8") as f:
         for i in range(n):
-            mail = random.choice(resp)
-            name = str(uuid.uuid4())[:random.randint(18, 36)]
+            mail = random.choice(domain)
+            name = prefix + str(uuid.uuid4())[:random.randint(15, 36)] + suffix
             f.write(f"邮箱：{name}{mail}\n")
             f.write(f"链接：https://yopmail.com/zh/?login={name}\n\n")
 
