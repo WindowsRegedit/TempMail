@@ -25,9 +25,6 @@ suffix = st.text_input("邮箱后缀：")
 domain = st.multiselect("选择邮箱域名：", ["全部域名"] + resp, default="全部域名")
 if "全部域名" in domain:
     domain = resp
-
-n = st.slider("输入生成数量", 1, 10000000, 100000)
-
 n = st.slider("输入生成数量", 1, 100000000, 1000000)
 
 if st.button("开始生成"):
