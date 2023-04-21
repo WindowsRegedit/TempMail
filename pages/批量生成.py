@@ -20,7 +20,6 @@ def get_resp():
 
 resp = get_resp()
 
-<<<<<<< HEAD
 prefix = st.text_input("邮箱前缀：")
 suffix = st.text_input("邮箱后缀：")
 domain = st.multiselect("选择邮箱域名：", ["全部域名"] + resp, default="全部域名")
@@ -28,9 +27,9 @@ if "全部域名" in domain:
     domain = resp
 
 n = st.slider("输入生成数量", 1, 10000000, 100000)
-=======
+
 n = st.slider("输入生成数量", 1, 100000000, 1000000)
->>>>>>> e116d91d6e383fe6929f61dc43dacd08c328536c
+
 if st.button("开始生成"):
     fn = str(uuid.uuid4()) + ".txt"
     with st.spinner("请稍等……"), open("..\\" + fn, "a+", encoding="utf-8") as f:
