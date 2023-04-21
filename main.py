@@ -31,7 +31,7 @@ def get_table():
 df, resp, res = get_table()
 st.table(df)
 
-mail = st.selectbox("选择邮箱后缀：", resp + ["随机后缀"], index=len(resp) - 1)
+mail = st.selectbox("选择邮箱后缀：", resp + ["随机后缀"], index=len(resp))
 if mail == "随机后缀":
     mail = random.choice(resp)
 
